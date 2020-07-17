@@ -1,8 +1,9 @@
 # Hoshino_WebManager_template
 A template for Hoshino Services Web Manager
 
-**本项目仅为模板，请配合插件使用**
-**This project is only a template, please use it with plugins**
+**本项目仅为模板，请配合插件(hoshino服务开关网页版 by 倚栏待月)使用**
+
+**This project is only a template, please use it with plugins(hoshino服务开关网页版 by 倚栏待月)**
 
 ## 如何使用 How to use 
 
