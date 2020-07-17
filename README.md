@@ -9,7 +9,7 @@ A template for Hoshino Services Web Manager
 
 ### 使用HTTPS且使用常规端口（443）反向代理 HTTPS and use reverse proxy with normal port(443)
 
-1. 下载并根据版本替换文件 Download and replace files
+1. 下载并根据版本重命名并替换文件 Download rename and replace files
 
 2. 重启Hoshino Restart Hoshino
 
@@ -19,7 +19,7 @@ A template for Hoshino Services Web Manager
 
 2. 在***所有***'{{ public_address }}'后添加':{{ port }}' Add ':{{ port }}' after ***ALL*** '{{ public_address }}' in files
 
-3. 根据版本替换文件 Replace files
+3. 根据版本重命名并替换文件 Rename and Replace files
 
 4. 重启Hoshino Restart Hoshino
 
@@ -31,7 +31,7 @@ A template for Hoshino Services Web Manager
 
 3. 删去'base.html'中注释所标记内容 Delete the content marked by the comment in 'base.html'
 
-4. 根据版本替换文件 Replace files
+4. 根据版本重命名并替换文件 Rename and Replace files
 
 5. 重启Hoshino Restart Hoshino
 
@@ -41,7 +41,7 @@ A template for Hoshino Services Web Manager
 
 2. 根据***所有***文件的注释修改 Find ***ALL*** notes and follow the notes
 
-3. 根据版本替换文件 Replace files
+3. 根据版本重命名并替换文件 Rename and Replace files
 
 4. 重启Hoshino Restart Hoshino
 
