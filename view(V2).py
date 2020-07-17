@@ -108,6 +108,6 @@ async def set_group():
 async def setting(ctx):
     message = ctx['raw_message']
     if message == 'bot设置':
-        await bot.send(ctx,f'https://{public_address}/manager',at_sender=False)
+        await bot.send(ctx,f'https://{public_address}/group',at_sender=False)
         #非https请注释上面并取消下方注释
-        #await bot.send(ctx,f'http://{public_address}:{port}/manager',at_sender=False)
+        #await bot.send(ctx,f'http://{public_address}:{port}/group',at_sender=False)
