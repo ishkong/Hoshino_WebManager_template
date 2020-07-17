@@ -38,3 +38,14 @@ A template for Hoshino Services Web Manager
 3. Replace files
 
 4. Restart Hoshino
+
+#### Possible file locations
+
+| File Name | Line |
+| :----: | :----: |
+| view.py | 111 |
+| base.html | 8 |
+| by_group.html | 28 |
+| by_service.html | 26 |
+| group_services.html | 55 |
+| service_groups.html | 95 |
