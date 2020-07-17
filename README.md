@@ -6,17 +6,17 @@ A template for Hoshino Services Web Manager
 
 ## 如何使用 How to use 
 
-### 使用HTTPS且反向代理 HTTPS and use reverse proxy 
+### 使用HTTPS且使用常规端口（443）反向代理 HTTPS and use reverse proxy with normal port(443)
 
 1. 下载并根据版本替换文件 Download and replace files
 
 2. 重启Hoshino Restart Hoshino
 
-### 使用HTTPS但没有反向代理 HTTPS but no reverse proxy
+### 使用HTTPS但不使用常规端口（443）反向代理 HTTPS and use reverse proxy with unusual port(Not 443)
 
 1. 下载文件 Download files
 
-2. 在***所有***'{{public_address}}'后添加':{{port}}' Add ':{{port}}' after ***ALL*** '{{public_address}}' in files
+2. 在***所有***'{{ public_address }}'后添加':{{ port }}' Add ':{{ port }}' after ***ALL*** '{{ public_address }}' in files
 
 3. 根据版本替换文件 Replace files
 
