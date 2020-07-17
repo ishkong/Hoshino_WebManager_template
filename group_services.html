@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% block pagename %}群{{ group_id }}服务{% endblock %}
+{% block active1 %}active{% endblock %}
+{% block page_body %}
+    <div class="card-header border-0 py-5">
+        <h3 class="card-title align-items-start flex-column">
+            <span class="card-label font-weight-bolder text-dark">群{{ group_id }}服务</span>
+        </h3>
+        <div class="card-toolbar">
+            <button onclick="onAll()"class="btn btn-light-success font-weight-bold mr-2">启用所有</button>
+            <button onclick="offAll()"class="btn btn-light-danger font-weight-bold mr-2">禁用所有</button>
+            <button onclick="save()" class="btn btn-light-dark font-weight-bold">保存</button>
+        </div>
+    </div>
+    <div class="card-body py-0">
+            <!--begin::Table-->
+            <div class="table-responsive">
+                <table class="table table-head-custom table-vertical-center">
+                    <thead>
+                        <tr class="text-uppercase">
+                            <th class="pl-0" style="min-width: 100px"><span class="text-primary">order</span></th>
+                            <th style="min-width: 160px"><span class="text-primary">service name</span></th>
+                            <th class="pr-0 text-right" style="min-width: 120px"><span class="text-primary">status</span></th>
+                        </tr>
+                    </thead>
+                <tbody>
+                    {% for key in conf[group_id] %}
+                    <tr>
+                        <td class="pl-0">{{ loop.index }}</td>
+                        <td>{{ key }}</td>
+                        <td class="text-right"><button id="{{key}}" onclick="switcher('{{key}}')" class="btn btn-default"> {{ conf[group_id][key] }} </button></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                </table>
+            </div>
+            <!--end::Table-->
+    </div>
+
+    <script>
+        var conf = JSON.parse('{{conf|tojson}}');
+        var gid_str = '{{group_id}}';
+        for (key in conf[gid_str]) {
+            console.log(key);
+            if (conf[gid_str][key]) {
+                document.getElementById(key).innerText = '开';
+                document.getElementById(key).className = 'btn btn-light-success font-weight-bold mr-2';
+            }
+            else {
+                document.getElementById(key).innerText = '关';
+                document.getElementById(key).className = 'btn btn-light-danger font-weight-bold mr-2';
+            }
+        }
+        function save(){
+            var url = 'https://{{ public_address }}/set'
+            var request = new XMLHttpRequest();
+            request.onload = function() {
+                if (request.status == 200) {
+                    Swal.fire("Success", "设置成功", "success");
+                }
+                else {
+                    Swal.fire("Error", "设置失败", "error");
+                }
+            };
+
+            request.open('POST',url);
+            request.send(JSON.stringify(conf));
+        }
+        function set_conf(sv_name,is_enable) {
+            conf[gid_str][sv_name] = is_enable;
+            if (is_enable){
+                document.getElementById(sv_name).innerText = '开';
+                document.getElementById(sv_name).className = 'btn btn-light-success font-weight-bold mr-2';
+            }
+            else{
+                document.getElementById(sv_name).innerText = '关';
+                document.getElementById(sv_name).className = 'btn btn-light-danger font-weight-bold mr-2';
+            }
+        }
+        function switcher(sv_name) {
+            var old_status = conf[gid_str][sv_name];
+            var new_status = (old_status + 1)%2;
+            set_conf(sv_name,Boolean(new_status));
+        }
+        function onAll() {
+            for (sv_name in conf[gid_str]) {
+                if (conf[gid_str][sv_name] == false) {
+                    conf[gid_str][sv_name] = true;
+                document.getElementById(sv_name).innerText = '开';
+                    document.getElementById(sv_name).className = 'btn btn-light-success font-weight-bold mr-2';
+                }
+            }
+        }
+        function offAll() {
+            for (sv_name in conf[gid_str]) {
+                if (conf[gid_str][sv_name] == true) {
+                    conf[gid_str][sv_name] = false;
+                document.getElementById(sv_name).innerText = '关';
+                    document.getElementById(sv_name).className = 'btn btn-light-danger font-weight-bold mr-2';
+                }
+            }
+        }
+    </script>
+{% endblock %}
