@@ -24,6 +24,9 @@
                         <td class="pl-0">{{ loop.index }}</td>
                         <td class="text-center">{{ item }}</td>
                         <td class="text-right"><a href="https://{{ public_address }}/service/{{ item }}" class="btn btn-light-primary font-weight-bold mr-2">manage</a></td>
+                        <!--非HTTPS请使用下面代码代替上行内容
+                        <td class="text-right"><a href="http://{{ public_address }}:{{ port }}/service/{{ item }}" class="btn btn-light-primary font-weight-bold mr-2">manage</a></td>
+                        -->
                     </tr>
                     {% endfor %}
                 </tbody>

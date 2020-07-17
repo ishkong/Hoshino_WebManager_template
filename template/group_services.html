@@ -53,6 +53,8 @@
         }
         function save(){
             var url = 'https://{{ public_address }}/set'
+            // 非HTTPS请注释上方使用下方
+            // var url = 'http://{{ public_address }}:{{ port }}/set'
             var request = new XMLHttpRequest();
             request.onload = function() {
                 if (request.status == 200) {
