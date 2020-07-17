@@ -55,3 +55,11 @@ A template for Hoshino Services Web Manager
 | by_service.html | 26 |
 | group_services.html | 55 |
 | service_groups.html | 95 |
+
+## 展示 Display
+
+![login](/img/login.png)
+![group](/img/group.png)
+![service](/img/service.png)
+![group_services](/img/group_services.png)
+![service_groups](/img/service_groups.png)
